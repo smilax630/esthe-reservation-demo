@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>予約 | エステプロ・ラボ新宿店</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="phone-shell">
+      <header class="topbar" aria-label="予約ヘッダー">
+        <button class="icon-button" aria-label="戻る">
+          <i data-lucide="chevron-left"></i>
+        </button>
+        <h1>予約</h1>
+        <button class="icon-button" aria-label="メニュー">
+          <i data-lucide="menu"></i>
+        </button>
+      </header>
+
+      <section class="intro">
+        <h2>エステプロ・ラボ新宿店</h2>
+        <p>ご希望の日時・メニューを選択してください。</p>
+      </section>
+
+      <form class="reservation-form" id="reservationForm">
+        <section class="panel" aria-labelledby="dateHeading">
+          <div class="section-title">
+            <i data-lucide="calendar-days"></i>
+            <h3 id="dateHeading">日時を選択</h3>
+            <span>必須</span>
+          </div>
+
+          <div class="date-row" role="radiogroup" aria-label="日付">
+            <button type="button" class="date-card selected" data-date="6/22（日）">
+              <strong>6/22</strong>
+              <span>日</span>
+            </button>
+            <button type="button" class="date-card" data-date="6/23（月）">
+              <strong>6/23</strong>
+              <span>月</span>
+            </button>
+            <button type="button" class="date-card" data-date="6/24（火）">
+              <strong>6/24</strong>
+              <span>火</span>
+            </button>
+            <button type="button" class="date-card" data-date="6/25（水）">
+              <strong>6/25</strong>
+              <span>水</span>
+            </button>
+            <button type="button" class="date-card" data-date="6/26（木）">
+              <strong>6/26</strong>
+              <span>木</span>
+            </button>
+            <button type="button" class="date-card" data-date="6/27（金）">
+              <strong>6/27</strong>
+              <span>金</span>
+            </button>
+            <button type="button" class="date-card saturday" data-date="6/28（土）">
+              <strong>6/28</strong>
+              <span>土</span>
+            </button>
+            <button type="button" class="next-button" aria-label="翌週">
+              <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="time-row" role="radiogroup" aria-label="時間">
+            <button type="button" class="time-chip selected" data-time="10:00">10:00</button>
+            <button type="button" class="time-chip" data-time="11:00">11:00</button>
+            <button type="button" class="time-chip" data-time="12:00">12:00</button>
+            <button type="button" class="time-chip" data-time="13:00">13:00</button>
+            <button type="button" class="time-chip" data-time="14:00">14:00</button>
+            <button type="button" class="time-chip" data-time="15:00">15:00</button>
+            <button type="button" class="next-button" aria-label="次の時間">
+              <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="menuHeading">
+          <div class="section-title">
+            <i data-lucide="list"></i>
+            <h3 id="menuHeading">メニュー</h3>
+            <span>必須</span>
+          </div>
+          <label class="select-wrap">
+            <select id="menuSelect">
+              <option>【人気No.1】ハーブピーリング + 小顔フェイシャル 90分</option>
+              <option>毛穴洗浄フェイシャル 60分</option>
+              <option>ボディトリートメント 75分</option>
+            </select>
+            <i data-lucide="chevron-down"></i>
+          </label>
+        </section>
+
+        <section class="panel" aria-labelledby="staffHeading">
+          <div class="section-title">
+            <i data-lucide="user-round"></i>
+            <h3 id="staffHeading">スタッフ</h3>
+            <span>必須</span>
+          </div>
+          <label class="select-wrap">
+            <select id="staffSelect">
+              <option>指名なし（空き状況を優先）</option>
+              <option>佐藤</option>
+              <option>田中</option>
+              <option>鈴木</option>
+            </select>
+            <i data-lucide="chevron-down"></i>
+          </label>
+        </section>
+
+        <section class="panel customer-panel" aria-label="お客様情報">
+          <label class="field">
+            <span class="field-title">
+              <i data-lucide="user-round"></i>
+              <strong>お名前</strong>
+              <em>必須</em>
+            </span>
+            <input id="customerName" type="text" placeholder="例）山田 花子" autocomplete="name" required />
+          </label>
+
+          <label class="field">
+            <span class="field-title">
+              <i data-lucide="phone"></i>
+              <strong>電話番号</strong>
+              <em>必須</em>
+            </span>
+            <input
+              id="phoneNumber"
+              type="tel"
+              placeholder="例）090-1234-5678"
+              autocomplete="tel"
+              pattern="[0-9]{2,4}-[0-9]{2,4}-[0-9]{3,4}"
+              required
+            />
+            <small>ハイフンありで入力してください</small>
+          </label>
+        </section>
+
+        <button class="submit-button" type="submit">
+          <i data-lucide="calendar-days"></i>
+          <span>予約する</span>
+        </button>
+      </form>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

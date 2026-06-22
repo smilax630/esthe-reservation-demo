@@ -1,0 +1,478 @@
+:root {
+  --accent: #e74d82;
+  --accent-soft: #fff0f5;
+  --accent-weak: #fce4ee;
+  --ink: #1e2027;
+  --muted: #6f7784;
+  --line: #e7e8ec;
+  --field: #fdf8fa;
+  --blue: #1c86dc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #f3f4f6;
+  color: var(--ink);
+  font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.phone-shell {
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(20, 22, 28, 0.08), 0 24px 60px rgba(20, 22, 28, 0.12);
+  margin: 0 auto;
+  max-width: 940px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.topbar {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 88px 1fr 88px;
+  height: 120px;
+  padding: 0 38px;
+}
+
+.topbar h1 {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.icon-button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--accent);
+  cursor: pointer;
+  display: inline-flex;
+  height: 52px;
+  justify-content: center;
+  padding: 0;
+  width: 52px;
+}
+
+.icon-button:last-child {
+  justify-self: end;
+}
+
+.icon-button svg {
+  height: 42px;
+  stroke-width: 2.4;
+  width: 42px;
+}
+
+.intro {
+  padding: 42px 46px 28px;
+}
+
+.intro h2 {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.28;
+  margin: 0 0 14px;
+}
+
+.intro p {
+  color: var(--muted);
+  font-size: 28px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.reservation-form {
+  display: grid;
+  gap: 10px;
+  padding: 4px 14px 36px;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 32px;
+}
+
+.section-title,
+.field-title {
+  align-items: center;
+  display: flex;
+  gap: 22px;
+}
+
+.section-title {
+  margin-bottom: 28px;
+}
+
+.section-title svg,
+.field-title svg {
+  color: var(--accent);
+  flex: 0 0 auto;
+  height: 34px;
+  stroke-width: 2.2;
+  width: 34px;
+}
+
+.section-title h3,
+.field-title strong {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.section-title span,
+.field-title em {
+  background: var(--accent-weak);
+  border-radius: 9px;
+  color: var(--accent);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+  padding: 8px 11px;
+}
+
+.date-row,
+.time-row {
+  align-items: center;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) 28px;
+}
+
+.date-card,
+.time-chip {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(25, 28, 36, 0.04);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.date-card {
+  align-items: center;
+  display: grid;
+  gap: 10px;
+  height: 112px;
+  justify-items: center;
+  padding: 18px 8px;
+}
+
+.date-card strong {
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.date-card span {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.date-card.saturday span {
+  color: var(--blue);
+}
+
+.date-card.selected,
+.time-chip.selected {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.date-card.selected strong,
+.date-card.selected span,
+.time-chip.selected {
+  font-weight: 800;
+}
+
+.next-button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: #6d737d;
+  cursor: pointer;
+  display: inline-flex;
+  height: 52px;
+  justify-content: center;
+  padding: 0;
+  width: 28px;
+}
+
+.next-button svg {
+  height: 34px;
+  stroke-width: 2.4;
+  width: 34px;
+}
+
+.divider {
+  background: var(--line);
+  height: 1px;
+  margin: 26px 0 20px;
+}
+
+.time-row {
+  grid-template-columns: repeat(6, minmax(0, 1fr)) 28px;
+}
+
+.time-chip {
+  font-size: 26px;
+  height: 74px;
+}
+
+.select-wrap {
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42px;
+  min-height: 82px;
+  padding: 0 20px 0 28px;
+}
+
+.select-wrap select {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 27px;
+  min-width: 0;
+  outline: 0;
+  width: 100%;
+}
+
+.select-wrap svg {
+  color: #717780;
+  height: 30px;
+  justify-self: end;
+  pointer-events: none;
+  stroke-width: 2.4;
+  width: 30px;
+}
+
+.customer-panel {
+  display: grid;
+  gap: 28px;
+  padding-bottom: 24px;
+}
+
+.field {
+  display: grid;
+  gap: 18px;
+}
+
+.field input {
+  background: var(--field);
+  border: 1px solid #e1e3e8;
+  border-radius: 14px;
+  color: var(--ink);
+  font-size: 26px;
+  height: 74px;
+  outline: 0;
+  padding: 0 22px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+}
+
+.field input::placeholder {
+  color: #b9bec8;
+}
+
+.field input:focus,
+.select-wrap:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(231, 77, 130, 0.12);
+}
+
+.field small {
+  color: var(--muted);
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.submit-button {
+  align-items: center;
+  background: var(--accent);
+  border: 0;
+  border-radius: 15px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 34px;
+  font-weight: 800;
+  gap: 18px;
+  height: 104px;
+  justify-content: center;
+  margin: 20px 24px 0;
+  box-shadow: 0 12px 28px rgba(231, 77, 130, 0.24);
+}
+
+.submit-button svg {
+  height: 38px;
+  stroke-width: 2.4;
+  width: 38px;
+}
+
+.toast {
+  background: rgba(31, 34, 42, 0.92);
+  border-radius: 12px;
+  bottom: 24px;
+  color: #fff;
+  font-size: 16px;
+  left: 50%;
+  max-width: min(90vw, 520px);
+  opacity: 0;
+  padding: 14px 18px;
+  pointer-events: none;
+  position: fixed;
+  transform: translate(-50%, 16px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    grid-template-columns: 52px 1fr 52px;
+    height: 72px;
+    padding: 0 18px;
+  }
+
+  .topbar h1 {
+    font-size: 22px;
+  }
+
+  .icon-button,
+  .icon-button svg {
+    height: 34px;
+    width: 34px;
+  }
+
+  .intro {
+    padding: 30px 28px 20px;
+  }
+
+  .intro h2 {
+    font-size: 29px;
+  }
+
+  .intro p {
+    font-size: 20px;
+  }
+
+  .reservation-form {
+    gap: 8px;
+    padding: 0 10px 28px;
+  }
+
+  .panel {
+    border-radius: 18px;
+    padding: 24px 20px;
+  }
+
+  .section-title,
+  .field-title {
+    gap: 14px;
+  }
+
+  .section-title h3,
+  .field-title strong {
+    font-size: 23px;
+  }
+
+  .section-title svg,
+  .field-title svg {
+    height: 28px;
+    width: 28px;
+  }
+
+  .section-title span,
+  .field-title em {
+    font-size: 14px;
+    padding: 7px 9px;
+  }
+
+  .date-row,
+  .time-row {
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scroll-snap-type: x proximity;
+  }
+
+  .date-row {
+    grid-template-columns: repeat(7, 86px) 28px;
+  }
+
+  .time-row {
+    grid-template-columns: repeat(6, 92px) 28px;
+  }
+
+  .date-card {
+    height: 88px;
+    scroll-snap-align: start;
+  }
+
+  .date-card strong,
+  .date-card span,
+  .time-chip {
+    font-size: 20px;
+  }
+
+  .time-chip {
+    height: 58px;
+  }
+
+  .select-wrap {
+    min-height: 66px;
+    padding-left: 18px;
+  }
+
+  .select-wrap select {
+    font-size: 19px;
+  }
+
+  .field input {
+    font-size: 20px;
+    height: 64px;
+  }
+
+  .field small {
+    font-size: 16px;
+  }
+
+  .submit-button {
+    border-radius: 12px;
+    font-size: 25px;
+    height: 78px;
+    margin: 14px 16px 0;
+  }
+}
