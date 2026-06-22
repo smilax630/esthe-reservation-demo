@@ -17,11 +17,13 @@ html {
   background: #f3f4f6;
   color: var(--ink);
   font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 button,
@@ -262,6 +264,9 @@ select {
   font-size: 27px;
   min-width: 0;
   outline: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   width: 100%;
 }
 
@@ -422,42 +427,51 @@ select {
 
   .date-row,
   .time-row {
-    gap: 12px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    scroll-snap-type: x proximity;
+    display: grid;
+    gap: 10px;
+    max-width: 100%;
+    overflow-x: visible;
+    padding-bottom: 0;
   }
 
   .date-row {
-    grid-template-columns: repeat(7, 86px) 28px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .time-row {
-    grid-template-columns: repeat(6, 92px) 28px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .date-card {
-    height: 88px;
-    scroll-snap-align: start;
+    height: 78px;
+    padding: 12px 4px;
+    width: 100%;
   }
 
   .date-card strong,
   .date-card span,
   .time-chip {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .time-chip {
     height: 58px;
+    width: 100%;
+  }
+
+  .date-row .next-button,
+  .time-row .next-button {
+    display: none;
   }
 
   .select-wrap {
+    grid-template-columns: minmax(0, 1fr) 30px;
     min-height: 66px;
-    padding-left: 18px;
+    padding: 0 14px 0 18px;
   }
 
   .select-wrap select {
-    font-size: 19px;
+    font-size: 16px;
   }
 
   .field input {
